@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<aside>Drag N Drop Bit</aside>
+    <header class="header">
+       <span>Hello, this game aims to teach about binary..
+        How to play
+      </span> 
+      <ul>
+          <li>Instructions</li>
+      </ul>
+    </header>
+     <div class="binary-chart-container">  
+        <div>128</div>
+        <div>64</div>
+        <div>32</div>
+        <div>16</div>
+        <div>8</div>
+        <div>4</div>
+        <div>2</div>
+        <div>1</div>  
+    </div>
+  <section class="dragElem-container">
+    <div class="dragElem"  draggable="true" id="1">1</div>
+    <br>
+    <div class="dragElem"  draggable="true" id="2">0</div>
+    <br>
+    <div class="dragElem"  draggable="true" id="3">1</div>
+    <br>
+    <div class="dragElem"  draggable="true" id="4">0</div>
+    <br>
+    
+</section>
+
+<main>
+    <div class="drop" draggable="true"></div>
+
+</main>
+
+
+
+<script>
+const dragElem = document.querySelectorAll('.dragElem')
+console.log(dragElem)
+const individualDragElem = [...dragElem].forEach(element => {
+  element.addEventListener('dragstart', e =>{
+       e.dataTransfer.setData('text/plain', element.id)
+       
+
+    })
+});
+   
+    for(const dropZone of document.getElementsByClassName('drop')){
+        dropZone.addEventListener('dragover', e =>{
+            e.preventDefault()
+            console.log('dragging over')
+           dropZone.classList.add('dragging')
+    
+    
+    
+        })
+
+        dropZone.addEventListener('drop', e=>{
+            e.preventDefault()
+            dropZone.classList.remove('dragging')
+            
+            console.log('drop')
+            const droppedElemId = e.dataTransfer.getData('text/plain')
+            const droppedElem = document.getElementById(droppedElemId)
+            console.log(droppedElem)
+            console.log(droppedElemId)
+            dropZone.appendChild(droppedElem)
+            console.log(e)
+            
+           
+
+        });
+        
+       
+       
+    }
+    
+   
+        
+
+</script>
+</body>
+</html>

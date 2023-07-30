@@ -1,0 +1,134 @@
+body{
+    background-color:bisque ;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+aside{
+    color:burlywood;
+    font-weight:600;font-size: 20px;
+    margin-top: 12px;
+}
+aside:hover{
+    color: grey;
+    cursor: pointer;
+}
+header{
+    padding: 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+header ul li{
+    list-style:none ;
+}
+
+.binary-chart-container{
+    height: 55px;
+    display: flex;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 42px;
+   border: 1px solid rgb(194, 190, 190);
+}
+.binary-chart-container div{
+    
+   margin-left: 22px;
+   font-size: 25px;
+   width: 30%;
+   color: gray;
+   text-align: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 700;
+}
+.dragElem{ 
+    height: 3px;
+    width: 2%;
+    padding: 20px 18px 25px 18px ;
+   /* background-color: rgba(219, 212, 212, 0.336);*/
+    color: rgb(109, 109, 109);
+    border-radius: 7px;
+    border: 1px solid gray;
+    text-align: center;
+
+}
+.color{
+    text-align: center;
+    height: 9px;
+    border: none;
+    
+
+}
+
+/*.dragElem-container{
+    margin: auto;
+    display: flex;
+    width: 60%;
+    justify-content: space-evenly;
+    
+}*/
+
+main {
+    margin-top: 44px; 
+}
+
+main div{
+     margin: auto;
+    background-color: none;
+    border: 1px solid rgb(175, 173, 173);
+    width: 50%;
+    height: 50px;
+    border-radius: 7px;
+    display: flex;
+}
+
+.dragging{
+    opacity: 0.3;
+
+   
+    
+}
+.button-contain{
+    display: flex;
+    margin-top: 22px;
+}
+button{
+
+    margin: auto;
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+    /*background-color:beige;*/
+    width: 17%;
+   height: 32px;
+   border-radius: 12px;
+   
+   
+}
+@media(max-width:754px){
+    .binary-chart-container{
+        width: 70%;
+    }
+.binary-chart-container div{
+  font-size: 1rem;
+}
+}
+@media(max-width:445px){
+    .binary-chart-container{
+        width: 85%;
+    }
+    .binary-chart-container div{
+        font-size: .9rem;
+      }
+
+}
+@media(max-width:350px){
+    .binary-chart-container{
+        width: 92%;
+    }
+    .binary-chart-container div{
+        font-size: .8rem;
+      }
+
+    }
