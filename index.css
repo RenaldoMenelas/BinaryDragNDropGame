@@ -43,14 +43,14 @@ header ul li{
    justify-content: center;
    font-weight: 700;
 }
-/*.dragElem-container{
+.dragElem-container{
     margin: auto;
     display: flex;
     width: 60%;
     justify-content: space-evenly;
    
     
-}*/
+}
 
 .dragElem{ 
     height: 3px;
@@ -66,6 +66,7 @@ header ul li{
 
 .dropElem-container {
     margin-top: 44px; 
+   
 }
 
 .dropElem-container .drop  {
@@ -73,12 +74,17 @@ header ul li{
     background-color: none;
     border: 1px solid rgb(175, 173, 173);
     width: 50%;
-    height: 50px;
+    height: 48px;
     border-radius: 7px;
     display: flex;
     justify-content: space-evenly;
 }
-
+p{
+    width: 69%;
+    margin: auto;
+    margin-top: 53px;
+    font-size: .9rem;
+}
 
 .dragging{
     opacity: 0.3;
@@ -88,19 +94,21 @@ header ul li{
 }
 .button-contain{
     display: flex;
-    margin-top: 22px;
+    justify-content: center;
+    
 }
 button{
-
-    margin: auto;
+    
     font-family: 'Courier New', Courier, monospace;
     border: none;
-    /*background-color:beige;*/
-    width: 17%;
-   height: 32px;
-   border-radius: 12px;
-   
-   
+    width:13rem;
+    border-radius: 12px;
+    padding: 12px;
+   margin-bottom: 44px;
+   font-weight: 600;
+   font-size: 23px;
+   background-color: transparent;
+   color: gray;
 }
 @media(max-width:754px){
     .binary-chart-container{

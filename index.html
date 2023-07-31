@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Drag N Drop Bit</title>
 </head>
 <body>
 <aside>Drag N Drop Bit</aside>
@@ -27,6 +27,11 @@
         <div>2</div>
         <div>1</div>  
     </div>
+    <div class="button-contain">
+    <button>
+        start Game
+     </button>
+    </div>
 <section class="dragElem-container">
     <div class="dragElem"  draggable="true" id="1">1</div>
     <br>
@@ -43,8 +48,11 @@
 
 </section>
 
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia error vel eligendi! Harum quisquam nisi facilis, dolorem incidunt illum doloremque voluptates beatae maiores minima!
+     Voluptate perferendis minima non ex sunt.</p>
 
 <script>
+const button = document.getElementsByTagName('button')
 const dragElem = document.querySelectorAll('.dragElem')
 console.log(dragElem)
 const individualDragElem = [...dragElem].forEach(element => {
@@ -78,7 +86,12 @@ const individualDragElem = [...dragElem].forEach(element => {
            console.log(allDroppedElem)
            if(dragElem.length === allDroppedElem.length){
             // dropZone.style.border = 'none'
+            
            }
+
+           dropZone.addEventListener('dragleave', e=>{
+               console.log('leave')
+           })
         });
           
       
@@ -87,6 +100,12 @@ const individualDragElem = [...dragElem].forEach(element => {
        
        
     }
+
+    button[0].addEventListener('click',(e)=>{
+       console.log(button[0].textContent = '1 ') 
+       button[0].style.backgroundColor = 'transparent' 
+
+    })
     
    
         
