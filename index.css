@@ -1,12 +1,12 @@
 body{
     background-color:bisque ;
-    color: black;
     font-family: 'Courier New', Courier, monospace;
 }
 aside{
     color:burlywood;
     font-weight:600;font-size: 20px;
     margin-top: 12px;
+    width:12rem;
 }
 aside:hover{
     color: grey;
@@ -43,6 +43,15 @@ header ul li{
    justify-content: center;
    font-weight: 700;
 }
+/*.dragElem-container{
+    margin: auto;
+    display: flex;
+    width: 60%;
+    justify-content: space-evenly;
+   
+    
+}*/
+
 .dragElem{ 
     height: 3px;
     width: 2%;
@@ -54,35 +63,22 @@ header ul li{
     text-align: center;
 
 }
-.color{
-    text-align: center;
-    height: 9px;
-    border: none;
-    
 
-}
-
-/*.dragElem-container{
-    margin: auto;
-    display: flex;
-    width: 60%;
-    justify-content: space-evenly;
-    
-}*/
-
-main {
+.dropElem-container {
     margin-top: 44px; 
 }
 
-main div{
-     margin: auto;
+.dropElem-container .drop  {
+    margin: auto;
     background-color: none;
     border: 1px solid rgb(175, 173, 173);
     width: 50%;
     height: 50px;
     border-radius: 7px;
     display: flex;
+    justify-content: space-evenly;
 }
+
 
 .dragging{
     opacity: 0.3;

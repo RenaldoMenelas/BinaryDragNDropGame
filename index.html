@@ -27,7 +27,7 @@
         <div>2</div>
         <div>1</div>  
     </div>
-  <section class="dragElem-container">
+<section class="dragElem-container">
     <div class="dragElem"  draggable="true" id="1">1</div>
     <br>
     <div class="dragElem"  draggable="true" id="2">0</div>
@@ -36,14 +36,12 @@
     <br>
     <div class="dragElem"  draggable="true" id="4">0</div>
     <br>
-    
 </section>
 
-<main>
+<section class="dropElem-container">
     <div class="drop" draggable="true"></div>
 
-</main>
-
+</section>
 
 
 <script>
@@ -64,24 +62,27 @@ const individualDragElem = [...dragElem].forEach(element => {
            dropZone.classList.add('dragging')
     
     
-    
         })
-
+        let allDroppedElem = []
         dropZone.addEventListener('drop', e=>{
+            
             e.preventDefault()
             dropZone.classList.remove('dragging')
-            
             console.log('drop')
             const droppedElemId = e.dataTransfer.getData('text/plain')
             const droppedElem = document.getElementById(droppedElemId)
+            allDroppedElem.push(droppedElem)
             console.log(droppedElem)
             console.log(droppedElemId)
             dropZone.appendChild(droppedElem)
-            console.log(e)
-            
-           
-
+           console.log(allDroppedElem)
+           if(dragElem.length === allDroppedElem.length){
+            // dropZone.style.border = 'none'
+           }
         });
+          
+      
+        
         
        
        
