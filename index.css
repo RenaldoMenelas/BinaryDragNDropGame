@@ -1,6 +1,7 @@
 body{
     background-color:bisque ;
     font-family: 'Courier New', Courier, monospace;
+    
 }
 aside{
     color:burlywood;
@@ -19,6 +20,24 @@ header{
     align-items: center;
     flex-direction: column;
 }
+span{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    animation:
+    typing 4s steps(58),
+    cursor .4s step-end infinite alternate
+    ;
+}
+@keyframes cursor{
+    50%{border-color:transparent;}
+}
+@keyframes typing{
+    from{width:0}
+}
+
 header ul li{
     list-style:none ;
 }
@@ -48,7 +67,6 @@ header ul li{
     display: flex;
     width: 60%;
     justify-content: space-evenly;
-   
     
 }
 
@@ -64,13 +82,10 @@ header ul li{
 
 }
 
-.dropElem-container {
-    margin-top: 44px; 
-   
-}
 
-.dropElem-container .drop  {
+.dropZone {
     margin: auto;
+    margin-top: 44px;
     background-color: none;
     border: 1px solid rgb(175, 173, 173);
     width: 50%;
@@ -78,12 +93,16 @@ header ul li{
     border-radius: 7px;
     display: flex;
     justify-content: space-evenly;
+    
+    
 }
 p{
     width: 69%;
     margin: auto;
     margin-top: 53px;
     font-size: .9rem;
+    text-align: center;
+    
 }
 
 .dragging{
@@ -110,6 +129,7 @@ button{
    background-color: transparent;
    color: gray;
 }
+
 @media(max-width:754px){
     .binary-chart-container{
         width: 70%;
