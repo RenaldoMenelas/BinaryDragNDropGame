@@ -20,7 +20,7 @@ header{
     align-items: center;
     flex-direction: column;
 }
-span{
+button{
     text-align: center;
     display: inline-block;
     width: 100%;
