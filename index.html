@@ -8,16 +8,30 @@
     <title>Drag N Drop Bit</title>
 </head>
 <body>
-<aside>Drag N Drop Bit</aside>
+<h4>Drag N Drop Bit</h4>
     <header class="header">
-       <span>Hello, this game aims to teach about binary numbers..
-        
-      </span> 
+       <span>Your job is to convert the whole number into it's binary form.. </span> 
       <ul>
-          <li>Instructions</li>
+          <li>Click for Instructions</li>
       </ul>
     </header>
-     <section class="binary-chart-container">  
+    <!--aside>
+
+        <h5>How To Play</h5>
+         
+         <ol>
+             <li>your assigned a number to convert to it's binary code.</li>
+             <li>what numbers can we add get to 10? use the chart</li>
+          <li>    <div class="binarychart-convertor">128 64 32 16 8 4 2 1</div> 
+          </li>
+          <li>every time we use a number in chart it will be placed with a 1 else we put a zero</li>
+          <li>from the first number we use, we can only go to the right of the chart until we reach last number </li>
+     
+     </aside-->
+<main>
+
+     <section class="binary-chart-container"> 
+       
         <div>128</div>
         <div>64</div>
         <div>32</div>
@@ -26,17 +40,19 @@
         <div>4</div>
         <div>2</div>
         <div>1</div>  
+        
+        
     </section>
 
     <section class="button-contain">
-    <button>
-        start Game
-     </button>
+    <div id="start-game" class="start-game">
+        10
+    </div>
     </section>
 <section class="dragElem-container">
-    <div class="dragElem"  draggable="true" id="1">1</div>
+    <div class="dragElem"  draggable="true" id="1">0</div>
     <br>
-    <div class="dragElem"  draggable="true" id="2">0</div>
+    <div class="dragElem"  draggable="true" id="2">1</div>
     <br>
     <div class="dragElem"  draggable="true" id="3">1</div>
     <br>
@@ -45,30 +61,145 @@
 </section>
 
 
-<div class="dropZone" draggable="true"></div>
 
-
-<p>- Note To start game all Binary representatives must be inside drop container.
-     <p>
-
+<p>- Note To start game all Binary representatives must be inside drop container <p>
+    <section class="get-more-codes">
+        <h5>Need more Codes</h5>
+        <div class="extra-codes">
+            <div id='5'class="dragElem" class="extra-dragElem" draggable="true">1</div>
+            <div id='6' class="dragElem"class="extra-dragElem" draggable="true">0</div>
+            </div>
+        </section>
+</main>
 <script>
-const button = document.getElementsByTagName('button')
-const dragElem = document.querySelectorAll('.dragElem')
-console.log(dragElem)
-const individualDragElem = [...dragElem].forEach(element => {
-  element.addEventListener('dragstart', e =>{
-       e.dataTransfer.setData('text/plain', element.id)
-       
+  const startGameText = document.getElementById('start-game')
+  const dragElem = document.querySelectorAll('.dragElem')
+  let draggableElems =  [...dragElem]
+ 
+  
+
+   //initaliazing a dragevent for each element && setting there data content based on ther id
+  const individualDragElem = draggableElems.forEach(element => {
+      element.addEventListener('dragstart', e =>{
+      console.log(e)
+      console.log(e.dataTransfer)
+      e.dataTransfer.setData('text/plain', element.id)
 
     })
+    element.addEventListener('dragover', e =>{
+            e.preventDefault()
+            console.log('dragging over')
+          element.classList.add('draggingOver')
+          
+           
+        })
+        element.addEventListener('dragleave', e =>{
+            e.preventDefault()
+            console.log('dragging over')
+          element.classList.remove('draggingOver')
+          
+           
+        })
+  
 });
+
+const extraNums =document.querySelectorAll('.extra-dragElem')
+console.log(extraNums)
+console.log(draggableElems)
+const extraDigits =  Array.from(extraNums)
+
+extraDigits.forEach(element =>{
+    element.addEventListener('dragstart',e=>{
+     // let div = document.createElement('div')
+     // div.textContent = element.textContent
+     // div.classList.add('dragElem')
+     
+      console.log(e)
+    
+        
+    });
+    element.addEventListener('dragover', e =>{
+            e.preventDefault()
+            console.log('dragging over')
+          element.classList.add('draggingOver')
+          
+           
+        })
+        element.addEventListener('dragleave', e =>{
+            e.preventDefault()
+            console.log('dragging over')
+          element.classList.remove('draggingOver')
+          
+           
+        })
+
+
+})
+      
+
+const individualDropElem = draggableElems.forEach(element => {
+  //adding drop event to all individiual dragg elements
+  element.addEventListener('drop',e=>{
+    element.classList.remove('draggingOver')
+    const droppedElemId = e.dataTransfer.getData('text/plain')
+    const droppedElem = document.getElementById(droppedElemId)
+
+    console.log(droppedElem)  
+    console.log(element)
+//setting previous text of drag elem equal to curr drag elem text
+    const prevElemText = element.textContent
+    console.log(prevElemText)
+    element.textContent = droppedElem.textContent
+    droppedElem.textContent =  prevElemText
+
+    const  prevElem =  draggableElems[element.id-1]
+    const currElem = draggableElems[droppedElem.id-1]
+    draggableElems[droppedElem.id-1] = currElem
+  
+
+    let result = ''
+    console.log(draggableElems)
+    for(const elem in draggableElems){
+  result += draggableElems[elem].textContent
+    }
+    //removing last two codes from our final result 
+    //last two codes are an added feature for when we dont have enough 0 and 1s
+let resultSlice = result.slice(0,-2)
+    console.log(resultSlice)
+
+    if((startGameText.textContent >>> 0).toString(2) === resultSlice){
+        const myTimeout = setTimeout(nextNumber, 2000);
+        startGameText.textContent = 'correct'
+        startGameText.style.color = 'burlywood'
+             
+             
+
+function nextNumber() {
+    startGameText.style.color = 'grey'
+    let arr = [8,15,10,9,12]
+    startGameText.textContent = arr[0]
+    
+    arr.shift()
+  
+
+ 
+}
+            }
+  })
    
+})
+
+  
     for(const dropZone of document.getElementsByClassName('dropZone')){
         dropZone.addEventListener('dragover', e =>{
             e.preventDefault()
             console.log('dragging over')
-           dropZone.classList.add('dragging')
-    
+           dropZone.classList.add('draggingOver')
+           
+        })
+        dropZone.addEventListener('dragleave', e=>{
+            dropZone.classList.remove('dragging')
+            
 
         })
    
@@ -76,20 +207,21 @@ const individualDragElem = [...dragElem].forEach(element => {
             e.preventDefault()
             const droppedElemId = e.dataTransfer.getData('text/plain')
             const droppedElem = document.getElementById(droppedElemId)
-            dropZone.classList.remove('dragging')
+            dropZone.classList.remove('draggingOver')
             droppedElem.classList.add('dropElem')
             dropZone.appendChild(droppedElem)
             const dropElemCollection = document.getElementsByClassName('dropElem')
-            console.log(dropZone)
-           if(dragElem.length === dropElemCollection.length){//this means all oour elements are inside
-            // dropZone.style.border = 'none'
-            document.getElementsByClassName('dragElem-container')[0].style.display = 'none'
-            button[0].textContent = '1 '
-            document.getElementsByTagName('p')[0].textContent = 'OK!! you begun now given the decimal number use the elements to convert to its binary form' 
+            console.log(dropZone.textContent)
+           
+           if(dragElem.length === dropElemCollection.length){//this means all our elements are inside
+            startGameText.textContent = 12   
+            document.getElementsByTagName('p')[0].textContent = 'OK!! you begun now given the decimal number use the elements to convert to its binary form'
+            if((8 >>> 0).toString(2) === dropZone.textContent){
+                startGameText.textContent = 'correct'
+            }
+
            }
-           dropZone.addEventListener('dragleave', e=>{
-               console.log('leave')
-       })
+         
         });
        
     }

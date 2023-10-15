@@ -1,0 +1,220 @@
+$Border-Font-color:grey;
+body{
+    background-color:bisque ;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h4{
+    color:burlywood;
+    font-size: 20px;
+    margin-top: 12px;
+    width:12rem;
+}
+h4:hover{
+    color:$Border-Font-color;
+    cursor: pointer;
+}
+header{
+    padding: 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+aside{
+    
+    position: absolute;
+    border-right:1px solid $Border-Font-color ;
+    height: 70vh;
+    padding:7px;
+    width: 19%;
+}
+.extra-dragElem{
+    
+   @extend .dragElem ;
+}
+
+h5{
+    text-decoration: underline;
+     text-align: center;
+     color: gray;
+    text-align: center;
+    margin-bottom: 22px;
+    font-size: 16px;
+}
+.hello{
+
+    margin-top: 12px;
+    border: 1px solid $Border-Font-color;
+  opacity: 0.0;
+  text-align: center;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+}
+.examples:hover  + .hello{
+    opacity: 1.1;
+
+}
+
+.examples{
+    
+    width: 70%;
+    border: 1px solid $Border-Font-color;
+    padding:13px;
+  border-radius: 4px;
+  margin-right: 22px;
+  margin: auto;
+  
+
+  
+}
+
+
+ol li{
+    margin-top: 33px;
+    border-radius: 12px;
+    color: $Border-Font-color;
+    
+}
+
+.start-game{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    animation:
+    typing 4s steps(58),
+    cursor .4s step-end infinite alternate
+    ;
+}
+@keyframes cursor{
+    50%{border-color:transparent;}
+}
+@keyframes typing{
+    from{width:0}
+}
+
+header ul li{
+    list-style:none ;
+}
+
+.binary-chart-container{
+    height: 55px;
+    display: flex;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 42px;
+   border: 1px solid rgb(194, 190, 190);
+}
+.binary-chart-container div{
+    
+   margin-left: 22px;
+   font-size: 21px;
+   width: 30%;
+   color:$Border-Font-color;
+   text-align: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 700;
+}
+.dragElem-container{
+    display: flex;
+    width: 57%;
+    justify-content: space-evenly;
+}
+
+.dragElem{ 
+    height: 3px;
+    width: 2%;
+    padding: 20px 18px 25px 18px ;
+   /* background-color: rgba(219, 212, 212, 0.336);*/
+    color: rgb(109, 109, 109);
+    border-radius: 7px;
+    border: 1px solid gray;
+    text-align: center;
+
+}
+
+
+.dropZone {
+    margin-top: 44px;
+    border: 1px solid rgb(175, 173, 173);
+    width: 50%;
+    height: 48px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-evenly;
+}
+p{
+    width: 69%;
+    margin: auto;
+    margin-top: 53px;
+    font-size: .9rem;
+    text-align: center;
+    
+}
+
+.draggingOver{
+    opacity: 0.3;
+}
+.button-contain{
+    display: flex;
+    justify-content: center;
+}
+
+.start-game{
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 44px;
+   font-weight: 600;
+   font-size: 23px;
+   background-color: transparent;
+   color:$Border-Font-color;
+}
+.extra-codes{
+    display: flex;
+   
+}
+.extra-codes .dragElem{
+margin-left: 22px;
+    
+}
+
+@media(max-width:754px){
+    .binary-chart-container{
+        width: 70%;
+    }
+.binary-chart-container div{
+  font-size: 1rem;
+}
+}
+@media(max-width:445px){
+    .binary-chart-container{
+        width: 85%;
+    }
+    .binary-chart-container div{
+        font-size: .9rem;
+      }
+
+}
+@media(max-width:350px){
+    .binary-chart-container{
+        width: 92%;
+    }
+    .binary-chart-container div{
+        font-size: .8rem;
+      }
+
+    }
