@@ -140,6 +140,7 @@ extraDigits.forEach(element =>{
 const individualDropElem = draggableElems.forEach(element => {
   //adding drop event to all individiual dragg elements
   element.addEventListener('drop',e=>{
+    e.preventDefault()
     element.classList.remove('draggingOver')
     const droppedElemId = e.dataTransfer.getData('text/plain')
     const droppedElem = document.getElementById(droppedElemId)
