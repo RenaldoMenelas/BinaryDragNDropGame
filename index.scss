@@ -1,6 +1,6 @@
 $Border-Font-color:grey;
 body{
-    background-color:bisque ;
+    
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -37,7 +37,10 @@ aside{
 }
 .extra-dragElem{
     
-   @extend .dragElem ;
+   @extend .dragElem;
+}
+.dragElem-icon{
+    @extend .dragElem;
 }
 
 h5{

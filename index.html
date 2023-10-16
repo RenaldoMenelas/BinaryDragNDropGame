@@ -8,15 +8,22 @@
     <title>Drag N Drop Bit</title>
 </head>
 <body>
-<h4>Drag N Drop Bit</h4>
-    <header class="header">
-       <span>Your job is to convert the whole number into it's binary form.. </span> 
-      <ul>
-          <li>Click for Instructions</li>
-      </ul>
-    </header>
-    <!--aside>
+    <header>
+<h4>Drag N Drop Bit </h4>  
+<div>
+<div class="dragElem-icon" id='dragIcon'  draggable="true" >0</div>  
+    <div class="dragElem-icon" id='dragIcon2'  draggable="true" id="2">1</div>
+</div>   
+</header>
 
+    <div class="sub-head">
+       <span>Your job is to convert the whole number into it's binary form.. </span> 
+     
+          <text>Click for Instructions</text>
+     
+    </div>
+    <aside class="hide">
+    <span class="closeInstructions">X</span>
         <h5>How To Play</h5>
          
          <ol>
@@ -25,9 +32,9 @@
           <li>    <div class="binarychart-convertor">128 64 32 16 8 4 2 1</div> 
           </li>
           <li>every time we use a number in chart it will be placed with a 1 else we put a zero</li>
-          <li>from the first number we use, we can only go to the right of the chart until we reach last number </li>
+          <li>Chart <b>must</b> only be read from left to right </li>
      
-     </aside-->
+     </aside>
 <main>
 
      <section class="binary-chart-container"> 
@@ -45,7 +52,7 @@
     </section>
 
     <section class="button-contain">
-    <div id="start-game" class="start-game">
+    <div id="whole-number" class="whole-number">
         10
     </div>
     </section>
@@ -62,7 +69,7 @@
 
 
 
-<p>- Note To start game all Binary representatives must be inside drop container <p>
+<p>- Note sometimes youll need to use more codes to solve problem. <p>
     <section class="get-more-codes">
         <h5>Need more Codes</h5>
         <div class="extra-codes">
@@ -72,10 +79,23 @@
         </section>
 </main>
 <script>
-  const startGameText = document.getElementById('start-game')
+  const startGameText = document.getElementById('whole-number')
+  const instructions = document.getElementsByClassName('hide')[0]
+  const instructionsBtn = document.getElementsByTagName('text')[0]
+
   const dragElem = document.querySelectorAll('.dragElem')
   let draggableElems =  [...dragElem]
- 
+  console.log(instructions)
+
+  instructionsBtn.addEventListener('click',(e)=>{
+    console.log('clicker')
+    instructions.classList.remove('hide')
+  })
+
+  document.getElementsByClassName('closeInstructions')[0].addEventListener('click',e=>{
+ instructions.classList.add('hide')
+    console.log('click')
+  })
   
 
    //initaliazing a dragevent for each element && setting there data content based on ther id
@@ -169,64 +189,42 @@ let resultSlice = result.slice(0,-2)
     console.log(resultSlice)
 
     if((startGameText.textContent >>> 0).toString(2) === resultSlice){
+       let limitedDraggableElems = draggableElems.slice(0,-2)
         const myTimeout = setTimeout(nextNumber, 2000);
         startGameText.textContent = 'correct'
         startGameText.style.color = 'burlywood'
-             
-             
+        limitedDraggableElems.forEach(elem=>{
+           elem.style.backgroundColor = 'bisque'
+        })
+            
 
-function nextNumber() {
-    startGameText.style.color = 'grey'
-    let arr = [8,15,10,9,12]
-    startGameText.textContent = arr[0]
-    
-    arr.shift()
-  
-
- 
-}
-            }
+ }
   })
    
 })
+let i = 0
+function nextNumber() {
 
-  
-    for(const dropZone of document.getElementsByClassName('dropZone')){
-        dropZone.addEventListener('dragover', e =>{
-            e.preventDefault()
-            console.log('dragging over')
-           dropZone.classList.add('draggingOver')
-           
-        })
-        dropZone.addEventListener('dragleave', e=>{
-            dropZone.classList.remove('dragging')
-            
-
-        })
+draggableElems.forEach(elem=> {
    
-        dropZone.addEventListener('drop', e=>{
-            e.preventDefault()
-            const droppedElemId = e.dataTransfer.getData('text/plain')
-            const droppedElem = document.getElementById(droppedElemId)
-            dropZone.classList.remove('draggingOver')
-            droppedElem.classList.add('dropElem')
-            dropZone.appendChild(droppedElem)
-            const dropElemCollection = document.getElementsByClassName('dropElem')
-            console.log(dropZone.textContent)
-           
-           if(dragElem.length === dropElemCollection.length){//this means all our elements are inside
-            startGameText.textContent = 12   
-            document.getElementsByTagName('p')[0].textContent = 'OK!! you begun now given the decimal number use the elements to convert to its binary form'
-            if((8 >>> 0).toString(2) === dropZone.textContent){
-                startGameText.textContent = 'correct'
-            }
+    elem.style.backgroundColor = 'white'
 
-           }
-         
-        });
-       
-    }
+    })
+    
+     startGameText.style.color = 'grey'
+     let arr = [8,15,11,9,12]
+     
+     startGameText.textContent = arr[i]
+     if(startGameText.textContent==='correct'){
+         i++
+         startGameText.textContent = arr[i]
 
+     }
+
+arr.shift()
+console.log(arr)
+
+}
 
 </script>
 </body>

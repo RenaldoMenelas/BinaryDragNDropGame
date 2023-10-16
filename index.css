@@ -18,43 +18,46 @@ h4:hover {
 }
 
 header {
-  padding: 23px;
-  display: -webkit-box;
-  display: -ms-flexbox;
+ 
+ 
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
+  align-items: center;
+  margin-bottom: 23px;
 
-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  
+}
+.sub-head{
+
+  text-align: center;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  
+}
+main {
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
 aside  {
   position: absolute;
   border-right: 1px solid grey;
-  height: 80vh;
   padding: 7px;
   width: 19%;
   background-color: bisque;
- 
+}
+.closeInstructions{
+  color: grey;
+  display: flex;
+  flex-direction: row-reverse;
+  cursor: pointer;
+
+}
+.hide{
+    display: none;
+
 }
 
 h5 {
@@ -69,15 +72,14 @@ h5 {
 .binarychart-convertor {
   margin-top: 12px;
   border: 1px solid grey;
-  
   text-align: center;
-  /*-webkit-transition: all 500ms ease-in-out;*/
-  /*transition: all 500ms ease-in-out;*/
+  
 }
-ul li{
+text{
   animation: updown 4s ease infinite;
  color:burlywood;
  font-weight: bold;
+ margin:32px 0 32px 0;
 }
 
 @keyframes updown {
@@ -102,48 +104,8 @@ ol li {
   color: grey;
 }
 
-.start-game {
-  text-align: center;
-  display: inline-block;
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  -webkit-animation: typing 4s steps(58), cursor 0.4s step-end infinite alternate;
-          animation: typing 4s steps(58), cursor 0.4s step-end infinite alternate;
-}
-
-@-webkit-keyframes cursor {
-  50% {
-    border-color: transparent;
-  }
-}
-
-@keyframes cursor {
-  50% {
-    border-color: transparent;
-  }
-}
-
-@-webkit-keyframes typing {
-  from {
-    width: 0;
-  }
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-}
-
-header ul li {
-  list-style: none;
-}
-
 .binary-chart-container {
   height: 55px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 50%;
   margin: auto;
@@ -157,50 +119,45 @@ header ul li {
   width: 30%;
   color: grey;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
 }
 
 .dragElem-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 57%;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
-.dragElem, .extra-dragElem {
+.dragElem, .extra-dragElem,.dragElem-icon {
   height: 3px;
   width: 2%;
   padding: 20px 18px 25px 18px;
-  /* background-color: rgba(219, 212, 212, 0.336);*/
+  /*background-color: rgba(219, 212, 212, 0.336);*/
   color: #6d6d6d;
   border-radius: 7px;
   border: 1px solid gray;
   text-align: center;
 }
-.dropZone {
-  margin-top: 44px;
-  border: 1px solid #afadad;
-  width: 50%;
-  height: 48px;
-  border-radius: 7px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+
+#dragIcon{
+position: absolute;
+width: 8px;
+height: 1px;
+padding: 12px 12px 22px;
+}
+#dragIcon2{
+position: relative;
+left: 17px;
+top: 20px;
+width: 8px;
+padding: 14px;
+height: 3px;
+background-color: bisque;
+
+
 }
 
 p {
@@ -215,16 +172,8 @@ p {
   opacity: 0.3;
 }
 
-.button-contain {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
 
-.start-game {
+.whole-number {
   font-family: 'Courier New', Courier, monospace;
   border-radius: 12px;
   padding: 12px;
@@ -236,8 +185,6 @@ p {
 }
 
 .extra-codes {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -251,6 +198,11 @@ p {
   }
   .binary-chart-container div {
     font-size: 1rem;
+  }
+  aside{
+    
+    width: 70%;
+    margin: auto;
   }
 }
 
