@@ -39,14 +39,14 @@
 
      <section class="binary-chart-container"> 
        
-        <div>128</div>
-        <div>64</div>
-        <div>32</div>
-        <div>16</div>
-        <div>8</div>
-        <div>4</div>
-        <div>2</div>
-        <div>1</div>  
+        <div class="digit">128</div>
+        <div class="digit">64</div>
+        <div class="digit">32</div>
+        <div class="digit">16</div>
+        <div class="digit">8</div>
+        <div class="digit">4</div>
+        <div class="digit">2</div>
+        <div class="digit">1</div>  
         
         
     </section>
@@ -61,15 +61,15 @@
     <br>
     <div class="dragElem"  draggable="true" id="2">1</div>
     <br>
-    <div class="dragElem"  draggable="true" id="3">1</div>
+    <div class="dragElem"  draggable="true" id="3">0</div>
     <br>
-    <div class="dragElem"  draggable="true" id="4">0</div>
+    <div class="dragElem"  draggable="true" id="4">1</div>
     <br>
 </section>
 
 
 
-<p>- Note sometimes youll need to use more codes to solve problem. <p>
+<p>- Note sometimes you'll need to grab more digits to solve problem. <p>
     <section class="get-more-codes">
         <h5>More Digits</h5>
         <div class="extra-codes">
@@ -78,24 +78,41 @@
             </div>
         </section>
 </main>
-<script>
+<script  >
   const startGameText = document.getElementById('whole-number')
   const instructions = document.getElementsByClassName('hide')[0]
   const instructionsBtn = document.getElementsByTagName('text')[0]
+  const binaryChartNum = document.getElementsByClassName('digit')
+  console.log(binaryChartNum)
 
   const dragElem = document.querySelectorAll('.dragElem')
   let draggableElems =  [...dragElem]
   console.log(instructions)
 
   instructionsBtn.addEventListener('click',(e)=>{
-    console.log('clicker')
-    instructions.classList.remove('hide')
-  })
+    for(let i =0; i < 4; i++){
 
+      binaryChartNum[i].classList.add('fade-unused-num')
+    }
+    instructions.classList.remove('hide')
+    })
+ 
+ 
+  
   document.getElementsByClassName('closeInstructions')[0].addEventListener('click',e=>{
- instructions.classList.add('hide')
-    console.log('click')
+    instructions.classList.add('hide')
+    document.getElementsByTagName('p')[0].textContent = `We've made things simpler by leaving only essential numbers needed to solve this problem`
+    const myTimeout = setTimeout(hints, 4000);
+    
+  
   })
+  
+  const hints=()=>{
+    document.getElementsByTagName('p')[0].textContent  = `based on the remaining digits above, reorder the elements below by putting 1 if you use the number to add up to your whole number or 0 if you dont
+
+`
+
+  }
   
 
    //initaliazing a dragevent for each element && setting there data content based on ther id
@@ -193,8 +210,14 @@ let resultSlice = result.slice(0,-2)
         const myTimeout = setTimeout(nextNumber, 2000);
         startGameText.textContent = 'correct'
         startGameText.style.color = 'burlywood'
+       document.getElementsByTagName('p')[0].textContent = "- Note sometimes you'll need to grab more digits to solve problem."
         limitedDraggableElems.forEach(elem=>{
            elem.style.backgroundColor = 'bisque'
+
+           for(let i =0; i < 4; i++){
+
+binaryChartNum[i].classList.remove('fade-unused-num')
+}
         })
             
 

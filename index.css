@@ -67,12 +67,6 @@ h5 {
   font-size: 16px;
 }
 
-.binarychart-convertor {
-  margin-top: 12px;
-  border: 1px solid grey;
-  text-align: center;
-  
-}
 text{
   animation: updown 4s ease infinite;
  color:burlywood;
@@ -123,6 +117,17 @@ ol li {
   align-items: center;
   justify-content: center;
   font-weight: 700;
+
+}
+/*.binary-chart-container :nth-child(1),
+.binary-chart-container :nth-child(2),
+.binary-chart-container :nth-child(3),
+.binary-chart-container :nth-child(4)
+{
+ opacity: 0.1;
+}*/
+.fade-unused-num{
+  opacity: 0.1;
 
 }
 
