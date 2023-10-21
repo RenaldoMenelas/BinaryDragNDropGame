@@ -1,10 +1,8 @@
 body {
-  background-color: white;
+ 
   font-family: 'Courier New', Courier, monospace;
 }
-img{
-  width: 30%;
- }
+
 h4 {
   color: burlywood;
   font-size: 20px;
@@ -111,6 +109,8 @@ ol li {
   margin: auto;
   margin-bottom: 42px;
   border: 1px solid #c2bebe;
+    box-shadow: 4px 2px 2px rgb(248, 205, 152);
+
 }
 
 .binary-chart-container div {
@@ -123,12 +123,14 @@ ol li {
   align-items: center;
   justify-content: center;
   font-weight: 700;
+
 }
 
 .dragElem-container {
   display: flex;
   width: 57%;
   justify-content: space-evenly;
+
 }
 
 .dragElem, .extra-dragElem,.dragElem-icon {
@@ -140,6 +142,7 @@ ol li {
   border-radius: 7px;
   border: 1px solid gray;
   text-align: center;
+  box-shadow: 4px 2px 2px rgb(248, 205, 152);
 }
 
 #dragIcon{

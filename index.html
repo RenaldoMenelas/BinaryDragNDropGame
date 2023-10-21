@@ -28,12 +28,12 @@
          
          <ol>
              <li>your assigned a number to convert to it's binary code.</li>
-             <li>what numbers can we add get to 10? use the chart</li>
-          <li>    <div class="binarychart-convertor">128 64 32 16 8 4 2 1</div> 
-          </li>
-          <li>every time we use a number in chart it will be placed with a 1 else we put a zero</li>
-          <li>Chart <b>must</b> only be read from left to right </li>
-     
+             <li>Reorder the codes by dragging and dropping them into the correct sequence.</li>
+             <li>Determine which numbers in the chart add up to our whole number. <div class="binarychart-convertor">128 64 32 16 8 4 2 1</div> </li>
+             <li>every time we use a number in chart it will be placed with a 1 else we put a zero</li>
+             <li>Once a '1' is used, no numbers to the <b></b>left</b> can be accessed, and you must continue placing '1' or '0' to the right of where you started</li> 
+
+        </ol>
      </aside>
 <main>
 
@@ -71,7 +71,7 @@
 
 <p>- Note sometimes youll need to use more codes to solve problem. <p>
     <section class="get-more-codes">
-        <h5>Need more Codes</h5>
+        <h5>More Digits</h5>
         <div class="extra-codes">
             <div id='5'class="dragElem" class="extra-dragElem" draggable="true">1</div>
             <div id='6' class="dragElem"class="extra-dragElem" draggable="true">0</div>
@@ -202,6 +202,7 @@ let resultSlice = result.slice(0,-2)
   })
    
 })
+let arr = [8,14,11,9,12]
 let i = 0
 function nextNumber() {
 
@@ -210,16 +211,15 @@ draggableElems.forEach(elem=> {
     elem.style.backgroundColor = 'white'
 
     })
-    
      startGameText.style.color = 'grey'
-     let arr = [8,15,11,9,12]
-     
      startGameText.textContent = arr[i]
-     if(startGameText.textContent==='correct'){
+
+     if(startGameText.textContent ==='correct'){
          i++
          startGameText.textContent = arr[i]
-
+      
      }
+     console.log(i)
 
 arr.shift()
 console.log(arr)
