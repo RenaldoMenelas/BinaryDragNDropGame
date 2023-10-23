@@ -83,11 +83,10 @@
   const instructions = document.getElementsByClassName('hide')[0]
   const instructionsBtn = document.getElementsByTagName('text')[0]
   const binaryChartNum = document.getElementsByClassName('digit')
-  console.log(binaryChartNum)
 
   const dragElem = document.querySelectorAll('.dragElem')
   let draggableElems =  [...dragElem]
-  console.log(instructions)
+
 
   instructionsBtn.addEventListener('click',(e)=>{
     for(let i =0; i < 4; i++){
@@ -102,13 +101,13 @@
   document.getElementsByClassName('closeInstructions')[0].addEventListener('click',e=>{
     instructions.classList.add('hide')
     document.getElementsByTagName('p')[0].textContent = `We've made things simpler by leaving only essential numbers needed to solve this problem`
-    const myTimeout = setTimeout(hints, 4000);
+    const myTimeout = setTimeout(hints, 6000);
     
   
   })
   
   const hints=()=>{
-    document.getElementsByTagName('p')[0].textContent  = `based on the remaining digits above, reorder the elements below by putting 1 if you use the number to add up to your whole number or 0 if you dont
+    document.getElementsByTagName('p')[0].textContent  = ` of the remaining digits on the chart reorder the elements above based on chart order, put a 1 if you use the number to add up to your whole number otherwise place 0 
 
 `
 
@@ -141,30 +140,20 @@
 });
 
 const extraNums =document.querySelectorAll('.extra-dragElem')
-console.log(extraNums)
-console.log(draggableElems)
 const extraDigits =  Array.from(extraNums)
 
 extraDigits.forEach(element =>{
     element.addEventListener('dragstart',e=>{
-     // let div = document.createElement('div')
-     // div.textContent = element.textContent
-     // div.classList.add('dragElem')
-     
-      console.log(e)
-    
-        
+        e.preventDefault()
     });
     element.addEventListener('dragover', e =>{
             e.preventDefault()
-            console.log('dragging over')
           element.classList.add('draggingOver')
           
            
         })
         element.addEventListener('dragleave', e =>{
             e.preventDefault()
-            console.log('dragging over')
           element.classList.remove('draggingOver')
           
            
@@ -177,13 +166,12 @@ extraDigits.forEach(element =>{
 const individualDropElem = draggableElems.forEach(element => {
   //adding drop event to all individiual dragg elements
   element.addEventListener('drop',e=>{
+
     e.preventDefault()
     element.classList.remove('draggingOver')
     const droppedElemId = e.dataTransfer.getData('text/plain')
     const droppedElem = document.getElementById(droppedElemId)
 
-    console.log(droppedElem)  
-    console.log(element)
 //setting previous text of drag elem equal to curr drag elem text
     const prevElemText = element.textContent
     console.log(prevElemText)
@@ -214,10 +202,6 @@ let resultSlice = result.slice(0,-2)
         limitedDraggableElems.forEach(elem=>{
            elem.style.backgroundColor = 'bisque'
 
-           for(let i =0; i < 4; i++){
-
-binaryChartNum[i].classList.remove('fade-unused-num')
-}
         })
             
 
@@ -225,7 +209,7 @@ binaryChartNum[i].classList.remove('fade-unused-num')
   })
    
 })
-let arr = [8,14,11,9,12]
+let arr = [8,14,11,9,12,"that's all for now...."]
 let i = 0
 function nextNumber() {
 
@@ -242,10 +226,9 @@ draggableElems.forEach(elem=> {
          startGameText.textContent = arr[i]
       
      }
-     console.log(i)
 
-arr.shift()
-console.log(arr)
+       arr.shift()
+
 
 }
 
