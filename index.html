@@ -201,10 +201,14 @@ let resultSlice = result.slice(0,-2)
        document.getElementsByTagName('p')[0].textContent = "- Note sometimes you'll need to grab more digits to solve problem."
         limitedDraggableElems.forEach(elem=>{
            elem.style.backgroundColor = 'bisque'
+           for(let i =0; i < 4; i++){
+
+binaryChartNum[i].classList.remove('fade-unused-num')
+}       
+
 
         })
-            
-
+    
  }
   })
    
